@@ -1,0 +1,41 @@
+<application>
+  <entry name="proxmox-base">
+    <default>
+      <port>
+        <member>tcp/8006</member>
+      </port>
+    </default>
+    <signature>
+      <entry name="proxmox-http-rsp-head">
+        <and-condition>
+          <entry name="And Condition 1">
+            <or-condition>
+              <entry name="Or Condition 1">
+                <operator>
+                  <pattern-match>
+                    <pattern>Server: pve-api-daemon/(\d+\.\d+)</pattern>
+                    <context>http-rsp-headers</context>
+                  </pattern-match>
+                </operator>
+              </entry>
+            </or-condition>
+          </entry>
+        </and-condition>
+        <scope>protocol-data-unit</scope>
+        <order-free>no</order-free>
+        <comment>Matches the response header for "Server: pve-api-daemon/3.0"</comment>
+      </entry>
+    </signature>
+    <subcategory>it-management</subcategory>
+    <category>networking</category>
+    <technology>browser-based</technology>
+    <description>Matches general web traffic to Proxmox web GUI.</description>
+    <risk>1</risk>
+    <able-to-transfer-file>yes</able-to-transfer-file>
+    <has-known-vulnerability>no</has-known-vulnerability>
+    <tunnel-other-application>no</tunnel-other-application>
+    <virus-ident>no</virus-ident>
+    <tunnel-applications>no</tunnel-applications>
+    <consume-big-bandwidth>yes</consume-big-bandwidth>
+  </entry>
+</application>

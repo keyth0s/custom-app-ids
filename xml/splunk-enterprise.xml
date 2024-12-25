@@ -1,0 +1,53 @@
+<application>
+    <entry name="splunk-enterprise">
+    <default>
+        <port>
+        <member>tcp/8000</member>
+        <member>tcp/8443</member>
+        <member>tcp/443</member>
+        </port>
+    </default>
+    <signature>
+        <entry name="splunk-http-rsp-head">
+        <and-condition>
+            <entry name="And Condition 1">
+            <or-condition>
+                <entry name="Or Condition 1">
+                <operator>
+                    <pattern-match>
+                    <pattern>Server: Splunkd</pattern>
+                    <context>http-rsp-headers</context>
+                    </pattern-match>
+                </operator>
+                </entry>
+                <entry name="Or Condition 2">
+                <operator>
+                    <pattern-match>
+                    <pattern>Set-Cookie: splunkd_*</pattern>
+                    <context>http-rsp-headers</context>
+                    </pattern-match>
+                </operator>
+                </entry>
+            </or-condition>
+            </entry>
+        </and-condition>
+        <scope>protocol-data-unit</scope>
+        <order-free>no</order-free>
+        <comment>Matches the response headers for "Server: Splunkd" and "Set-Cookie:" splunkd_*"</comment>
+        </entry>
+    </signature>
+    <subcategory>it-management</subcategory>
+    <category>networking</category>
+    <technology>browser-based</technology>
+    <description>Splunk Enterprise Web Management and Search Interface</description>
+    <risk>2</risk>
+    <able-to-transfer-file>yes</able-to-transfer-file>
+    <has-known-vulnerability>no</has-known-vulnerability>
+    <tunnel-other-application>no</tunnel-other-application>
+    <virus-ident>no</virus-ident>
+    <tunnel-applications>no</tunnel-applications>
+    <consume-big-bandwidth>no</consume-big-bandwidth>
+    <used-by-malware>yes</used-by-malware>
+    <parent-app>splunk</parent-app>
+    </entry>
+</application>

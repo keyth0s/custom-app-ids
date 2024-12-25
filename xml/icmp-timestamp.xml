@@ -1,0 +1,16 @@
+<application>
+  <entry name="icmp-timestamp">
+    <default>
+      <ident-by-ip-protocol>13,14</ident-by-ip-protocol>
+    </default>
+    <subcategory>ip-protocol</subcategory>
+    <category>networking</category>
+    <technology>peer-to-peer</technology>
+    <description>Matches ICMP timestamp requests. ICMP Timestamp can be used to gather information about the time on the remote system allowing for time-based attacks.</description>
+    <risk>3</risk>
+    <has-known-vulnerability>yes</has-known-vulnerability>
+    <prone-to-misuse>yes</prone-to-misuse>
+    <pervasive-use>yes</pervasive-use>
+    <parent-app>icmp</parent-app>
+  </entry>
+</application>

@@ -1,0 +1,67 @@
+<application>
+  <entry name="truenas-base">
+    <default>
+      <port>
+        <member>tcp/443</member>
+      </port>
+    </default>
+    <signature>
+      <entry name="http_rsp_headers">
+        <and-condition>
+          <entry name="And Condition 1">
+            <or-condition>
+              <entry name="Or Condition 1">
+                <operator>
+                  <pattern-match>
+                    <pattern>Etag:\s+TrueNAS-SCALE-[^\r\n]+</pattern>
+                    <context>http-rsp-headers</context>
+                  </pattern-match>
+                </operator>
+              </entry>
+            </or-condition>
+          </entry>
+        </and-condition>
+        <scope>protocol-data-unit</scope>
+        <order-free>no</order-free>
+      </entry>
+      <entry name="websockets_req_context">
+        <and-condition>
+          <entry name="And Condition 1">
+            <or-condition>
+              <entry name="Or Condition 1">
+                <operator>
+                  <pattern-match>
+                    <pattern>"method"\s*:\s*"truenas\.is_ix_hardware"</pattern>
+                    <context>websocket-req-context</context>
+                  </pattern-match>
+                </operator>
+              </entry>
+            </or-condition>
+          </entry>
+          <entry name="And Condition 2">
+            <or-condition>
+              <entry name="Or Condition 1">
+                <operator>
+                  <pattern-match>
+                    <pattern>"method"\s*:\s*"truenas*"</pattern>
+                    <context>websocket-req-context</context>
+                  </pattern-match>
+                </operator>
+              </entry>
+            </or-condition>
+          </entry>
+        </and-condition>
+        <scope>session</scope>
+        <order-free>no</order-free>
+      </entry>
+    </signature>
+    <subcategory>it-management</subcategory>
+    <category>networking</category>
+    <technology>browser-based</technology>
+    <description>TrueNAS Web Interface</description>
+    <risk>1</risk>
+    <consume-big-bandwidth>yes</consume-big-bandwidth>
+    <able-to-transfer-file>yes</able-to-transfer-file>
+    <virus-ident>yes</virus-ident>
+  </entry>
+</application>

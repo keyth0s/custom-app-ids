@@ -1,0 +1,52 @@
+<application>
+  <entry name="pihole-web">
+    <default>
+      <port>
+        <member>tcp/80</member>
+        <member>tcp/443</member>
+      </port>
+    </default>
+    <signature>
+      <entry name="http-rsp-headers">
+        <and-condition>
+          <entry name="And Condition 1">
+            <or-condition>
+              <entry name="Or Condition 2">
+                <operator>
+                  <pattern-match>
+                    <pattern>Server:\s*lighttpd\/[0-9\.]+</pattern>
+                    <context>http-rsp-headers</context>
+                  </pattern-match>
+                </operator>
+              </entry>
+            </or-condition>
+          </entry>
+          <entry name="And Condition 2">
+            <or-condition>
+              <entry name="Or Condition 1">
+                <operator>
+                  <pattern-match>
+                    <pattern>X-Pi-hole: *</pattern>
+                    <context>http-rsp-headers</context>
+                  </pattern-match>
+                </operator>
+              </entry>
+            </or-condition>
+          </entry>
+        </and-condition>
+        <scope>protocol-data-unit</scope>
+        <order-free>yes</order-free>
+      </entry>
+    </signature>
+    <subcategory>it-infrastructure</subcategory>
+    <category>networking</category>
+    <technology>browser-based</technology>
+    <description>Matches traffic associated with the Pi-Hole web interface and API </description>
+    <risk>1</risk>
+    <evasive-behavior>no</evasive-behavior>
+    <has-known-vulnerability>yes</has-known-vulnerability>
+    <virus-ident>no</virus-ident>
+    <data-ident>yes</data-ident>
+    <tunnel-applications>no</tunnel-applications>
+  </entry>
+</application>
