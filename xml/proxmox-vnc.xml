@@ -1,0 +1,38 @@
+<application>
+  <entry name="proxmox-vnc">
+    <default>
+      <port>
+        <member>tcp/8006</member>
+        <member>tcp/5000-5999</member>
+      </port>
+    </default>
+    <signature>
+      <entry name="tcp-payload-rfb-session">
+        <and-condition>
+          <entry name="And Condition 1">
+            <or-condition>
+              <entry name="Or Condition 1">
+                <operator>
+                  <pattern-match>
+                    <pattern>^RFB\s003\.\d{3}$</pattern>
+                    <context>websocket-req-context</context>
+                  </pattern-match>
+                </operator>
+              </entry>
+            </or-condition>
+          </entry>
+        </and-condition>
+        <scope>protocol-data-unit</scope>
+        <order-free>yes</order-free>
+      </entry>
+    </signature>
+    <subcategory>remote-access</subcategory>
+    <category>networking</category>
+    <technology>browser-based</technology>
+    <description>Attempts to detect use of VNC viewer in Proxmox Web Interface.</description>
+    <risk>2</risk>
+    <consume-big-bandwidth>yes</consume-big-bandwidth>
+    <tunnel-other-application>yes</tunnel-other-application>
+    <prone-to-misuse>yes</prone-to-misuse>
+  </entry>
+</application>

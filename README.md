@@ -7,7 +7,7 @@ These are all still considered works in progress. Some of them are just for iden
 * Complete - no further developement/modifications expected. Covers all intended use cases.
 * Maintenance Only - covers intended use cases and no major re-work needed. Continue to monitor for application changes and update as needed.
 * Partial - covers some intended use cases, or may not persist across sessions properly and create unintended application shifts. Further Development needed. 
-* Developemental - recently created or created and not validated. Expected to cover intended use cases, but untested/unvalidated.
+* Experimental - recently created or created and not validated. Expected to cover intended use cases, but untested/unvalidated.
 
 ## Current App-IDs 
 
@@ -19,10 +19,12 @@ These are all still considered works in progress. Some of them are just for iden
 | proxmox-base | yes | Maintenance Only | it-management | networking | tcp/8006 |
 | splunk-enterprise | yes[^1] | Maintenance Only | it-management | networking | tcp/80, tcp/443, tcp/8000, tcp/8443 |
 | truenas-base | yes | Maintenance Only | it-management | networking | tcp/443 |
+| proxmox-vnc | yes | Experimental | remote-access | networking | tcp/8006, tcp/5000-5999 |
 
 
 [^1]: SSL is not enabled by default for this application. Required when SSL has been manually enabled, otherwise not required.
-[^2]: Signature matched based on Server Name Identifier, decryption is optional but recommended.
+[^2]: Signature matches based on Server Name Identifier (SNI) field, decryption is optional but recommended.
+[^3]: Experimental App-ID used to detect application shifts within a custom App-ID; experiencing unexpected behavior.
 
 ## Formats
 App-IDs will be provided in multiple formats to include:
