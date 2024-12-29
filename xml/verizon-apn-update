@@ -1,0 +1,34 @@
+<application>
+    <entry name="verizon-apn-update">
+        <default>
+        <port>
+            <member>tcp/5223</member>
+        </port>
+        </default>
+        <signature>
+        <entry name="verizon-apn-sni">
+            <and-condition>
+            <entry name="And Condition 1">
+                <or-condition>
+                <entry name="Or Condition 1">
+                    <operator>
+                    <pattern-match>
+                        <pattern>fp-us-verizon.rcs.telephony.goog</pattern>
+                        <context>ssl-req-chello-sni</context>
+                    </pattern-match>
+                    </operator>
+                </entry>
+                </or-condition>
+            </entry>
+            </and-condition>
+            <scope>protocol-data-unit</scope>
+            <order-free>no</order-free>
+        </entry>
+        </signature>
+        <subcategory>it-infrastructure</subcategory>
+        <category>networking</category>
+        <technology>client-server</technology>
+        <description>Service on iPhones to communicate with Verizon APN servers to keep APN settings up-to-date.</description>
+        <risk>1</risk>
+    </entry>
+</application>
