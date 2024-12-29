@@ -19,7 +19,7 @@ These are all still considered works in progress. Some of them are just for iden
 | proxmox-base | yes | Maintenance Only | it-management | networking | tcp/8006 |
 | splunk-enterprise | yes[^1] | Maintenance Only | it-management | networking | tcp/80, tcp/443, tcp/8000, tcp/8443 |
 | truenas-base | yes | Maintenance Only | it-management | networking | tcp/443 |
-| proxmox-vnc [^3] | yes | Partial | remote-access | networking | tcp/8006, tcp/5000-5999 |
+| verizon-apn-update [^2] | no | Partial | it-infrastructure | networking | tcp/5223 |
 | proxmox-vnc [^3] | yes | Experimental | remote-access | networking | tcp/8006, tcp/5000-5999 |
 
 
