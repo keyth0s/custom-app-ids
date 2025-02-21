@@ -13,6 +13,7 @@ These are all still considered works in progress. Some of them are just for iden
 
 | App Name | Requires Decryption | Status | Category | Sub Category | Default Protos/Ports |
 | -------- | ------------------- | ------ | -------- | ------------ | -------------------- |
+| 1password-connect | yes[^1] | Complete | business-systems | data-privacy | tcp/80, tcp/8080, tcp/443, tcp/8443|
 | icmp-timestamp | no | Complete | ip-protocol | networking | ip_proto/13, ip_proto/14 |
 | pihole-web | yes[^1] | Maintenance Only | it-infrastructure | networking | tcp/80, tcp/443 |
 | pkgbuild | no[^2] | Maintenance Only | software-updates | business-systems | tcp/80, tcp/443 |
